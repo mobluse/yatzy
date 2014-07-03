@@ -1,5 +1,6 @@
 // DOMLib -- libmobdom.js
 // Inspired from dom_library.js from www.MAH.se course in web programming.
+// License: Public Domain.
 
 // dom_library.js ingår i övningsmateriel från kursen Webbprogrammering, DA123A,
 // HT08 vid Malmö högskola.
