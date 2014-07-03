@@ -1,6 +1,6 @@
 // EventLib -- libmobevent.js
 // Copyright (C) 2008 by Mikael O. Bonnier, Lund, Sweden.
-// All Rights Reserved.
+// License: GPLv3+.
 
 // Inspired by events_library.js from www.MAH.se course in web programming, however
 // this is much different from that.
