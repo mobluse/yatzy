@@ -1,0 +1,485 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="sv">
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Yatzy</title>
+
+
+  <meta name="author" content="Mikael O. Bonnier">
+
+  <script type="text/javascript" src="libmobdom.js"></script>
+  <script type="text/javascript" src="libmobevent.js"></script>
+  <script type="text/javascript" src="mobyatzy.js"></script>
+  <style type="text/css">
+dl {
+  font-size: small;
+}
+body {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+  </style>
+</head>
+
+
+<body style="direction: ltr;">
+
+<table style="text-align: left;" border="0" cellpadding="2" cellspacing="2">
+
+  <tbody>
+
+    <tr>
+
+      <td style="vertical-align: top;">
+      <h2>Yatzy</h2>
+
+      <p>Antal spelare:
+      <select size="1" id="optNoPlayers">
+      <option selected="selected">1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      </select>
+
+      <input id="btnNoPlayers" value="Välj antal spelare" type="button"><br>
+
+      <br>
+
+Aktiv spelare: <input readonly="readonly" maxlength="1" size="1" id="txtPlayer" value="1"></p>
+
+      <table style="text-align: left;" border="0" cellpadding="2" cellspacing="2">
+
+        <tbody>
+
+          <tr>
+
+            <td></td>
+
+            <td><img style="width: 66px; height: 66px;" id="imgDice0" alt="Tärning 1 med värde 1" src="1.gif"></td>
+
+            <td><img style="width: 66px; height: 66px;" id="imgDice1" alt="Tärning 2 med värde 2" src="2.gif"></td>
+
+            <td><img style="width: 66px; height: 66px;" id="imgDice2" alt="Tärning 3 med värde 3" src="3.gif"></td>
+
+            <td><img style="width: 66px; height: 66px;" id="imgDice3" alt="Tärning 4 med värde 4" src="4.gif"></td>
+
+            <td><img style="width: 66px; height: 66px;" id="imgDice4" alt="Tärning 5 med värde 5" src="5.gif"></td>
+
+            <td><input value="Kasta 1 av 3" id="btnThrow" disabled="disabled" type="button"></td>
+
+          </tr>
+
+          <tr>
+
+            <td>Låst:</td>
+
+            <td><input id="chkHold0" disabled="disabled" type="checkbox">1</td>
+
+            <td><input id="chkHold1" disabled="disabled" type="checkbox">2</td>
+
+            <td><input id="chkHold2" disabled="disabled" type="checkbox">3</td>
+
+            <td><input id="chkHold3" disabled="disabled" type="checkbox">4</td>
+
+            <td><input id="chkHold4" disabled="disabled" type="checkbox">5</td>
+
+            <td></td>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+      <p>Klicka i tabellen till höger där du vill placera
+resultatet när du kastat färdigt.</p>
+
+      </td>
+
+      <td style="vertical-align: top;">
+      <table style="text-align: left;" border="1" cellpadding="2" cellspacing="2">
+
+        <tbody>
+
+          <tr>
+
+            <th style="text-align: center; background-color: silver;" colspan="5" rowspan="1">YATZY</th>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: right;">Spelare:</th>
+
+            <th id="p0" style="text-align: center; background-color: rgb(51, 255, 51);">&nbsp;1&nbsp;</th>
+
+            <th id="p1" style="text-align: center;">&nbsp;2&nbsp;</th>
+
+            <th id="p2" style="text-align: center;">&nbsp;3&nbsp;</th>
+
+            <th id="p3" style="text-align: center;">&nbsp;4&nbsp;</th>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Ettor:</th>
+
+            <td id="p0f0">&nbsp;</td>
+
+            <td id="p1f0">&nbsp;</td>
+
+            <td id="p2f0">&nbsp;</td>
+
+            <td id="p3f0">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Tvåor:</th>
+
+            <td id="p0f1">&nbsp;</td>
+
+            <td id="p1f1">&nbsp;</td>
+
+            <td id="p2f1">&nbsp;</td>
+
+            <td id="p3f1">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Treor:</th>
+
+            <td id="p0f2">&nbsp;</td>
+
+            <td id="p1f2">&nbsp;</td>
+
+            <td id="p2f2">&nbsp;</td>
+
+            <td id="p3f2">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Fyror:</th>
+
+            <td id="p0f3">&nbsp;</td>
+
+            <td id="p1f3">&nbsp;</td>
+
+            <td id="p2f3">&nbsp;</td>
+
+            <td id="p3f3">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Femmor:</th>
+
+            <td id="p0f4">&nbsp;</td>
+
+            <td id="p1f4">&nbsp;</td>
+
+            <td id="p2f4">&nbsp;</td>
+
+            <td id="p3f4">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Sexor:</th>
+
+            <td id="p0f5">&nbsp;</td>
+
+            <td id="p1f5">&nbsp;</td>
+
+            <td id="p2f5">&nbsp;</td>
+
+            <td id="p3f5">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Summa:</th>
+
+            <td id="p0f6">&nbsp;</td>
+
+            <td id="p1f6">&nbsp;</td>
+
+            <td id="p2f6">&nbsp;</td>
+
+            <td id="p3f6">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Bonus:</th>
+
+            <td id="p0f7">&nbsp;</td>
+
+            <td id="p1f7">&nbsp;</td>
+
+            <td id="p2f7">&nbsp;</td>
+
+            <td id="p3f7">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Par:</th>
+
+            <td id="p0f8">&nbsp;</td>
+
+            <td id="p1f8">&nbsp;</td>
+
+            <td id="p2f8">&nbsp;</td>
+
+            <td id="p3f8">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Två par:</th>
+
+            <td id="p0f9">&nbsp;</td>
+
+            <td id="p1f9">&nbsp;</td>
+
+            <td id="p2f9">&nbsp;</td>
+
+            <td id="p3f9">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Tretal:</th>
+
+            <td id="p0f10">&nbsp;</td>
+
+            <td id="p1f10">&nbsp;</td>
+
+            <td id="p2f10">&nbsp;</td>
+
+            <td id="p3f10">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Fyrtal:</th>
+
+            <td id="p0f11">&nbsp;</td>
+
+            <td id="p1f11">&nbsp;</td>
+
+            <td id="p2f11">&nbsp;</td>
+
+            <td id="p3f11">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Liten&nbsp;stege:</th>
+
+            <td id="p0f12">&nbsp;</td>
+
+            <td id="p1f12">&nbsp;</td>
+
+            <td id="p2f12">&nbsp;</td>
+
+            <td id="p3f12">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Stor&nbsp;stege:</th>
+
+            <td id="p0f13">&nbsp;</td>
+
+            <td id="p1f13">&nbsp;</td>
+
+            <td id="p2f13">&nbsp;</td>
+
+            <td id="p3f13">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Kåk:</th>
+
+            <td id="p0f14">&nbsp;</td>
+
+            <td id="p1f14">&nbsp;</td>
+
+            <td id="p2f14">&nbsp;</td>
+
+            <td id="p3f14">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Chans:</th>
+
+            <td id="p0f15">&nbsp;</td>
+
+            <td id="p1f15">&nbsp;</td>
+
+            <td id="p2f15">&nbsp;</td>
+
+            <td id="p3f15">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Yatzy:</th>
+
+            <td id="p0f16">&nbsp;</td>
+
+            <td id="p1f16">&nbsp;</td>
+
+            <td id="p2f16">&nbsp;</td>
+
+            <td id="p3f16">&nbsp;</td>
+
+          </tr>
+
+          <tr>
+
+            <th style="text-align: left;">Total:</th>
+
+            <td id="p0f17">&nbsp;</td>
+
+            <td id="p1f17">&nbsp;</td>
+
+            <td id="p2f17">&nbsp;</td>
+
+            <td id="p3f17">&nbsp;</td>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+      </td>
+
+      <td>
+      <h3>Rubrikerna i Yatzy-protokollet</h3>
+
+      <dl>
+
+        <dt>Ettor</dt>
+
+        <dd>Alla tärningar som visar ett öga summeras, maximal
+poäng är 5</dd>
+
+        <dt>Tvåor</dt>
+
+        <dd>Alla tärningar som visar två ögon summeras, maximal
+poäng är 10</dd>
+
+        <dt>Treor</dt>
+
+        <dd>Alla tärningar som visar tre ögon summeras, maximal
+poäng är 15</dd>
+
+        <dt>Fyror</dt>
+
+        <dd>Alla tärningar som visar fyra ögon summeras, maximal
+poäng är 20 </dd>
+
+        <dt>Femmor</dt>
+
+        <dd>Alla tärningar som visar fem ögon summeras, maximal
+poäng är 25</dd>
+
+        <dt>Sexor</dt>
+
+        <dd>Alla tärningar som visar sex ögon summeras, maximal
+poäng är 30 </dd>
+
+        <dt>Summa</dt>
+
+        <dd>Summan av ovanstående</dd>
+
+        <dt>Bonus</dt>
+
+        <dd>Bonusen är 50 om summa är 63 eller mer</dd>
+
+        <dt>Par</dt>
+
+        <dd>Två tärningar med samma antal ögon. Högsta par
+räknas, maximal poäng är 12</dd>
+
+        <dt>Två par</dt>
+
+        <dd>Fyra tärningar med två olika par enligt ovan, maximal
+poäng är 22</dd>
+
+        <dt>Tretal</dt>
+
+        <dd>Tre tärningar med samma antal ögon, maximal poäng är
+18</dd>
+
+        <dt>Fyrtal</dt>
+
+        <dd>Fyra tärningar med samma antal ögon, maximal poäng är
+24</dd>
+
+        <dt>Liten stege</dt>
+
+        <dd>Fem tärningar med ögonen 1, 2, 3, 4 och 5 summeras,
+alltid 15 poäng</dd>
+
+        <dt>Stor stege</dt>
+
+        <dd>Fem tärningar med ögonen 2, 3, 4, 5 och 6 summeras,
+alltid 20 poäng</dd>
+
+        <dt>Kåk</dt>
+
+        <dd>Ett par och ett tretal (ej samma ögon på par och
+tretal), maximal poäng är 28</dd>
+
+        <dt>Chans</dt>
+
+        <dd>Alla tärningar summeras oavsett antal ögon, maximal
+poäng är 30</dd>
+
+        <dt>Yatzy</dt>
+
+        <dd>Alla tärningar med samma antal ögon, ger 50 poäng</dd>
+
+        <dt>Total</dt>
+
+        <dd>Total summa</dd>
+
+      </dl>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<p><a href="http://validator.w3.org/check?uri=referer"><img style="border: 0px solid ; width: 88px; height: 31px;" src="valid-html401.png" alt="Valid HTML 4.01 Strict"></a></p>
+
+</body>
+</html>
