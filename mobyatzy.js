@@ -1,6 +1,6 @@
 // Yatzy
 // Copyright (C) 2008 by Mikael O. Bonnier, Lund, Sweden.
-// All Rights Reserved.
+// License: GPLv3+.
 
 // Global variables
 
@@ -11,7 +11,7 @@ var results = new Array(18);    // results is a two dimensional array
 for(var i = 0; i < results.length; ++i)
     results[i] = new Array(MAXNOPLAYERS);
 var imgDices = new Array(6);    // Images of the six sides of a dice
-var imgBaseURL = "http://wp.orbin.se/ap1/";
+var URLBase = "http://wp.orbin.se/ap1/";
 var dices = new Array(5);       // Five yatzy dices
 var diceThrow = 1;              // Keeps track of the number of the throw of the dices for one player
 var placed = true;              // If the score has been marked
@@ -54,7 +54,7 @@ function markScore(e) {
         return;
     var eventObject = EventLib.getEventObject(e);
     if(eventObject == null){
-        alert("Inte tillrÃ¤ckligt stÃ¶d fÃ¶r JavaScript.");
+        alert("Inte tillräckligt stöd för JavaScript.");
         return;
     }
     var clickedCell = EventLib.getEventTarget(eventObject);
@@ -196,8 +196,8 @@ function markScore(e) {
     if (finished()) {
         btnThrow.disabled = true;
         var winners = calcWinners();
-        var ok = confirm("Spelet Ã¤r slut. Spelare " + winners.join(" och ") + " vann."
-            + " BÃ¶rjar pÃ¥ nytt med tom spelplan.");
+        var ok = confirm("Spelet är slut. Spelare " + winners.join(" och ") + " vann."
+            + " Börjar på nytt med tom spelplan.");
         if (ok)
             resetGame();
     }
@@ -331,7 +331,7 @@ function addMarkScoreEvent(i, p) {
 function loadImages() {
     for (var i = 0; i < 6; ++i) {
         imgDices[i] = new Image();
-        imgDices[i].src = imgBaseURL+(i+1)+".gif";
+        imgDices[i].src = URLBase+(i+1)+".gif";
     }
 }
 
