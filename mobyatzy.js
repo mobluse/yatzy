@@ -11,6 +11,7 @@ var results = new Array(18);    // results is a two dimensional array
 for(var i = 0; i < results.length; ++i)
     results[i] = new Array(MAXNOPLAYERS);
 var imgDices = new Array(6);    // Images of the six sides of a dice
+var imgBaseURL = "http://wp.orbin.se/ap1/";
 var dices = new Array(5);       // Five yatzy dices
 var diceThrow = 1;              // Keeps track of the number of the throw of the dices for one player
 var placed = true;              // If the score has been marked
@@ -330,7 +331,7 @@ function addMarkScoreEvent(i, p) {
 function loadImages() {
     for (var i = 0; i < 6; ++i) {
         imgDices[i] = new Image();
-        imgDices[i].src = ""+(i+1)+".gif";
+        imgDices[i].src = imgBaseURL+(i+1)+".gif";
     }
 }
 
