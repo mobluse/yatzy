@@ -328,11 +328,23 @@ function addMarkScoreEvent(i, p) {
     EventLib.addEvent(td, "click", markScore, false);
 }
 
+function initialize() {
+    var btnThrow = document.getElementById("btnThrow");
+    EventLib.addEvent(btnThrow, "click", throwDices, false);
+    var btnNoPlayers = document.getElementById("btnNoPlayers");
+    EventLib.addEvent(btnNoPlayers, "click", selectNoPlayers, false);
+    loadImages();
+    var optNoPlayers = document.getElementById("optNoPlayers");
+    optNoPlayers.focus();
+}
+
+EventLib.addEvent(window, "load", initialize, false);
+
 function loadImages() {
     for (var i = 0; i < 6; ++i) {
         imgDices[i] = new Image();
+        // imgDices[i].src = URLBase+(i+1)+".gif";
     }
-    // imgDices[i].src = URLBase+(i+1)+".gif";
     imgDices[0].src = URLBase+"R0lGODlhQgBCAPcAAAAAAP//////////////////////////////////////////////////////\
 ////////////////////////////////////////////////////////////////////////////\
 ////////////////////////////////////////////////////////////////////////////\
@@ -458,15 +470,3 @@ sZcca+499xht1qmX3YHildeYVvVFphx5EPoH1oMLNjdghtVtV9qFFHIYIXocdjihgCQ6iKFjGvUF\
 noIGejVUiSu6OBhkKoJGYFdO8cfbWun5aF5qQpK0Y2RF5kTbgEnWtuSGFkUp5ZMiTWnlbk0aFhAA\
 ADs=";
 }
-
-function initialize() {
-    var btnThrow = document.getElementById("btnThrow");
-    EventLib.addEvent(btnThrow, "click", throwDices, false);
-    var btnNoPlayers = document.getElementById("btnNoPlayers");
-    EventLib.addEvent(btnNoPlayers, "click", selectNoPlayers, false);
-    loadImages();
-    var optNoPlayers = document.getElementById("optNoPlayers");
-    optNoPlayers.focus();
-}
-
-EventLib.addEvent(window, "load", initialize, false);
