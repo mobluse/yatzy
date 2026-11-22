@@ -328,11 +328,32 @@ function addMarkScoreEvent(i, p) {
     EventLib.addEvent(td, "click", markScore, false);
 }
 
+function toggleHold(e) {
+    var eventObject = EventLib.getEventObject(e);
+    if (eventObject == null) return;
+
+    var img = EventLib.getEventTarget(eventObject);
+    // img.id is e.g. "imgDice0" → extract the number
+    var i = parseInt(img.id.slice(7), 10);   // "imgDice".length === 7
+
+    var chkHold = document.getElementById("chkHold" + i);
+    if (chkHold && !chkHold.disabled) {
+        chkHold.checked = !chkHold.checked;
+    }
+}
+
 function initialize() {
     var btnThrow = document.getElementById("btnThrow");
     EventLib.addEvent(btnThrow, "click", throwDices, false);
     var btnNoPlayers = document.getElementById("btnNoPlayers");
     EventLib.addEvent(btnNoPlayers, "click", selectNoPlayers, false);
+
+    // Make dice images also toggle the hold checkboxes
+    for (var i = 0; i < 5; ++i) {
+        var imgDice = document.getElementById("imgDice" + i);
+        EventLib.addEvent(imgDice, "click", toggleHold, false);
+    }
+
     loadImages();
     var optNoPlayers = document.getElementById("optNoPlayers");
     optNoPlayers.focus();
