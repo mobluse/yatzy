@@ -345,10 +345,10 @@ function loadImages() {
         imgDices[i] = new Image();
         // imgDices[i].src = URLBase+(i+1)+".gif";
     }
-    imgDices[0].src = "dice1.gif";
-    imgDices[1].src = "dice2.gif";
-    imgDices[2].src = "dice3.gif";
-    imgDices[3].src = "dice4.gif";
-    imgDices[4].src = "dice5.gif";
-    imgDices[5].src = "dice6.gif";
+    imgDices[0].src = "img/dice1.gif";
+    imgDices[1].src = "img/dice2.gif";
+    imgDices[2].src = "img/dice3.gif";
+    imgDices[3].src = "img/dice4.gif";
+    imgDices[4].src = "img/dice5.gif";
+    imgDices[5].src = "img/dice6.gif";
 }
