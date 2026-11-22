@@ -345,10 +345,10 @@ function loadImages() {
         imgDices[i] = new Image();
         // imgDices[i].src = URLBase+(i+1)+".gif";
     }
-    imgDices[0].src = "https://cloud.githubusercontent.com/assets/5777329/6675202/3eb91440-cc1f-11e4-859f-c1d11bc140e7.gif";
-    imgDices[1].src = "https://cloud.githubusercontent.com/assets/5777329/6675208/452ec55e-cc1f-11e4-95d7-988e7162f262.gif";
-    imgDices[2].src = "https://cloud.githubusercontent.com/assets/5777329/6675215/4afbef7a-cc1f-11e4-870b-c3080367f84f.gif";
-    imgDices[3].src = "https://cloud.githubusercontent.com/assets/5777329/6675220/4f8f2746-cc1f-11e4-95e6-5613232d9d6d.gif";
-    imgDices[4].src = "https://cloud.githubusercontent.com/assets/5777329/6675224/54a42eac-cc1f-11e4-8ae0-46631e3e785d.gif";
-    imgDices[5].src = "https://cloud.githubusercontent.com/assets/5777329/6675228/5a0339ec-cc1f-11e4-9b00-d2b151db383d.gif";
+    imgDices[0].src = "dice1.gif";
+    imgDices[1].src = "dice2.gif";
+    imgDices[2].src = "dice3.gif";
+    imgDices[3].src = "dice4.gif";
+    imgDices[4].src = "dice5.gif";
+    imgDices[5].src = "dice6.gif";
 }
